@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Apple 风格配色 */
+  --color-primary: #007AFF;      /* iOS 蓝色 */
+  --color-secondary: #5856D6;    /* iOS 紫色 */
+  --color-background: #FFFFFF;   /* 明亮模式背景 */
+  --color-text: #1D1D1F;        /* Apple 标准文本色 */
+  --color-gray: #86868B;        /* Apple 次要文本色 */
+  --color-light-gray: #F5F5F7;  /* 浅灰背景色 */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #000000;
+    --color-text: #F5F5F7;
+    --color-gray: #86868B;
+    --color-light-gray: #1D1D1F;
+  }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
+  line-height: 1.47059;
+  letter-spacing: -0.022em;
+  overflow-x: hidden;
+}
+
+/* 优雅的滚动条样式 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gray) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+/* Apple 风格焦点状态 */
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
+  border-radius: 4px;
+}
+
+/* Apple 风格按钮 */
+.apple-button {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 980px;  /* Apple 风格圆角 */
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.016em;
+  transition: all 0.2s ease-out;
+  border: none;
+  cursor: pointer;
+}
+
+.apple-button:hover {
+  transform: scale(1.02);
+  background-color: #0071EB;
+}
+
+.apple-button:active {
+  transform: scale(0.98);
+}
+
+/* 次要按钮 */
+.apple-button-secondary {
+  background-color: var(--color-light-gray);
+  color: var(--color-text);
+}
+
+/* Apple 风格卡片 */
+.apple-card {
+  background-color: var(--color-background);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.apple-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Apple 风格标题 */
+.apple-heading {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.003em;
+  line-height: 1.1;
+}
+
+/* 响应式设计 */
+@media (max-width: 834px) {
+  body {
+    font-size: 15px;
+  }
+  
+  .apple-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .apple-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+  
+  .apple-button {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+} 

@@ -1,22 +1,47 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{Astro.props.title}</title>
 	</head>
-	<body>
+	<body class="min-h-screen bg-white dark:bg-black text-apple-text dark:text-white">
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	:root {
+		--color-primary: #007AFF;
+		--color-secondary: #5856D6;
+		--color-background: #FFFFFF;
+		--color-text: #1D1D1F;
+		--color-gray: #86868B;
+		--color-light-gray: #F5F5F7;
+		--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+		--shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--color-background: #000000;
+			--color-text: #F5F5F7;
+			--color-gray: #86868B;
+			--color-light-gray: #1D1D1F;
+		}
+	}
+
+	html {
+		font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
 	body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		padding: 0;
+		background-color: var(--color-background);
+		color: var(--color-text);
 	}
 </style>

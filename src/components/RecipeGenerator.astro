@@ -1,0 +1,90 @@
+---
+import background from '../assets/background.svg';
+---
+
+
+<div id="container">
+  <img id="background" src={background.src} alt="" fetchpriority="high" />
+  <div class="max-w-3xl mx-auto px-4 py-8">
+    <div class="apple-card mb-8">
+      <h1 class="apple-heading text-2xl mb-4">AI智能菜谱推荐</h1>
+      
+      <div class="mb-6">
+        <label for="preferences" class="block text-sm font-medium mb-2">您的饮食偏好</label>
+        <input 
+          type="text" 
+          id="preferences" 
+          class="w-full px-4 py-2 rounded-lg border border-apple-light-gray focus:border-apple-blue" 
+          placeholder="例如: 健康、低脂、快速"
+        >
+      </div>
+
+      <button id="generateBtn" class="apple-button">
+        生成菜谱
+      </button>
+    </div>
+
+    <div id="recipeResult" class="apple-card prose dark:prose-invert hidden">
+      <!-- 这里将显示生成的菜谱 -->
+    </div>
+  </div>
+</div>
+
+<script>
+  const generateBtn = document.getElementById('generateBtn') as HTMLButtonElement;
+  const preferencesInput = document.getElementById('preferences') as HTMLInputElement;
+  const recipeResult = document.getElementById('recipeResult');
+
+  generateBtn.addEventListener('click', async () => {
+    if(!recipeResult) return;
+    
+    const preferences = preferencesInput.value || '健康、低脂、快速';
+    
+    try {
+      generateBtn.disabled = true;
+      generateBtn.textContent = '生成中...';
+      
+      const response = await fetch(`/api/recipe?preferences=${encodeURIComponent(preferences)}`);
+      const data = await response.json();
+      
+      if(data.recipe) {
+        recipeResult.innerHTML = data.recipe;
+        recipeResult.classList.remove('hidden');
+      }
+    } catch(error) {
+      console.error('生成失败:', error);
+      alert('生成菜谱失败,请稍后重试');
+    } finally {
+      generateBtn.disabled = false;
+      generateBtn.textContent = '生成菜谱';
+    }
+  });
+</script>
+
+<style>
+  #background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(100px);
+  }
+
+  #container {
+    font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+    height: 100%;
+  }
+
+  /* 加载状态样式 */
+  button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  /* Markdown 内容样式 */
+  .prose {
+    max-width: none;
+  }
+</style> 

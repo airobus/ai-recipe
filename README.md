@@ -1,48 +1,35 @@
-# Astro Starter Kit: Basics
+# AI 菜谱助手
 
-```sh
-npm create astro@latest -- --template basics
-```
+## 项目描述
+一个基于 AI 的菜谱助手，帮助选择困难的用户轻松找到适合的菜谱。
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 功能特点
+- AI 推荐菜谱
+- 详细菜谱信息
+- 制作流程指导
+- 菜品制作记录
+- 示例图片展示
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 技术栈
+- Astro
+- TypeScript
+- pnpm
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 开发任务列表
+- [x] 设计项目架构
+- [x] 创建菜谱数据模型 (基于AI动态生成)
+- [x] 实现 AI 推荐算法
+- [ ] 开发用户界面 (部分完成)
+- [ ] 集成图片展示功能
+- [ ] 添加菜谱记录功能
 
-## 🚀 Project Structure
+## 安装与运行
+1. 克隆仓库
+2. 运行 `pnpm install`
+3. 运行 `pnpm dev`
 
-Inside of your Astro project, you'll see the following folders and files:
+## 贡献指南
+...
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 许可证
+...
